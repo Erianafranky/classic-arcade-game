@@ -8,5 +8,8 @@ frontend-nanodegree-arcade-game
 - There are five lives. Each time you collide with a bug a life is lost. 
 - If you loose all five lives, the game ends.
 
+##  Play
+You can play the game here https://erianafranky.github.io/classic-arcade-game/
+
 ## How I created the project
 I built the project using javascript object oriented programming, HTML5 and CSS.
