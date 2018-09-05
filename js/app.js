@@ -95,8 +95,6 @@ Lives.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-//var allEnemies = [new Enemy(-8, 60, 3), new Enemy(0, 140, 10), new Enemy(-5, 300, 15)];
-//var player = new Player(200, 380);
 var allEnemies = [];
 for (var i = 0; i < 6; i++) {
     var random_speed = getRandomNumber(10, 35) * 10;
