@@ -79,7 +79,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -93,7 +93,23 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update();
+
+        if ( Math.round(player.y / 80) === 0 ) {
+            player.update();
+        }
+        
+    }
+
+    function checkCollisions() {
+        allEnemies.forEach(function(enemy) {
+            if ( Math.round(enemy.x / 100) === Math.round(player.x / 100) && 
+                 Math.round(enemy.y / 80) === Math.round(player.y / 80) ) {
+                    player.reset();
+                    alllives.pop();
+                    playerLives -= 1;
+            }
+        });
+        checkLives();    
     }
 
     /* This function initially draws the "game level", it will then call
@@ -154,6 +170,10 @@ var Engine = (function(global) {
         });
 
         player.render();
+
+        alllives.forEach(function(lives){
+            lives.render();
+        });
     }
 
     /* This function does nothing but it could have been a good place to
@@ -173,7 +193,9 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-princess-girl.png',
+        'images/Heart.png'
     ]);
     Resources.onReady(init);
 
